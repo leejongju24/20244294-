@@ -1,0 +1,22 @@
+import turtle
+
+# 화면 설정
+screen = turtle.Screen()
+screen.bgcolor("white")  # 배경색을 흰색으로 설정
+
+# 거북이 객체 생성
+t = turtle.Turtle()
+t.shape("turtle")  # 거북이 모양으로 설정
+t.color("green")  # 거북이 색상
+
+# 거북이가 움직이는 경로
+t.forward(100)  # 100 픽셀 만큼 앞으로 이동
+t.left(90)  # 왼쪽으로 90도 회전
+t.forward(100)  # 100 픽셀 만큼 앞으로 이동
+t.left(90)  # 왼쪽으로 90도 회전
+t.forward(100)  # 100 픽셀 만큼 앞으로 이동
+t.left(90)  # 왼쪽으로 90도 회전
+t.forward(100)  # 100 픽셀 만큼 앞으로 이동
+
+# 화면을 클릭하면 종료
+screen.exitonclick()
