@@ -1,0 +1,6 @@
+import random
+
+# 1부터 100까지의 숫자 중 랜덤으로 하나 선택
+random_number = random.randint(1, 100)
+
+print("랜덤으로 나온 숫자:", random_number)
