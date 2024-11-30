@@ -1,0 +1,44 @@
+import random
+
+# 3자리 숫자 생성 함수
+def generate_number():
+    return random.sample(range(1, 10), 3)
+
+# 스트라이크와 볼을 계산하는 함수
+def get_strikes_and_balls(user_input, secret_number):
+    strikes = sum([1 for i in range(3) if user_input[i] == secret_number[i]])
+    balls = len(set(user_input) & set(secret_number)) - strikes
+    return strikes, balls
+
+def play_game():
+    secret_number = generate_number()
+    attempts = 0
+    
+    print("야구 게임을 시작합니다!")
+    
+    while True:
+        user_input = input("3자리 숫자를 입력하세요 (1~9 사이의 숫자, 중복 없이): ")
+        
+        # 입력 유효성 검사
+        if len(user_input) != 3 or not user_input.isdigit():
+            print("잘못된 입력입니다. 3자리 숫자를 입력해주세요.")
+            continue
+        
+        user_input = [int(digit) for digit in user_input]
+        
+        if len(set(user_input)) != 3:
+            print("숫자에 중복이 있습니다. 3개의 서로 다른 숫자를 입력해주세요.")
+            continue
+        
+        attempts += 1
+        strikes, balls = get_strikes_and_balls(user_input, secret_number)
+        
+        print(f"{strikes} 스트라이크, {balls} 볼")
+        
+        if strikes == 3:
+            print(f"정답을 맞추셨습니다! {attempts}번 만에 정답을 맞추셨습니다.")
+            break
+
+# 게임 실행
+if __name__ == "__main__":
+    play_game()
